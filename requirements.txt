@@ -1,7 +1,9 @@
-langchain
-langgraph
-sentence-transformers
-chromadb
-pydantic
-rank-bm25
-streamlit
+streamlit>=1.29.0
+chromadb>=0.4.22
+rank-bm25>=0.2.2
+sentence-transformers>=2.3.1
+torch>=2.1.0
+openai>=1.12.0  # Used as the python client interface to local Ollama endpoints
+pandas>=2.0.0
+numpy>=1.24.0
+tqdm>=4.66.0
