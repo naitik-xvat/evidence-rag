@@ -1,5 +1,27 @@
+# Virtual environment
 .venv/
+venv/
+env/
+
+# Python cache
 __pycache__/
-*.pyc
+*.py[cod]
+
+# Local vector database
+data/index/
+
+# Dataset
+data/raw/
+data/processed/
+
+# Generated results
+results/
+
+# Environment variables
 .env
-chroma_db/
+.env.*
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store

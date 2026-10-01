@@ -108,7 +108,7 @@ BENCHMARK_SUITE = [
 
 
 def run_benchmark():
-    print("🚀 Initializing Benchmark Suite Execution...")
+    print("Initializing Benchmark Suite Execution...")
     db_dir = os.path.abspath("data/index/chroma_db")
     transcripts_path = os.path.abspath("data/processed/final_transcripts.json")
     
@@ -205,7 +205,7 @@ def run_benchmark():
             "evaluations": output_records
         }, f, indent=2)
         
-    print(f"✅ Fast Benchmark Generation Complete! Output saved to: {out_path}")
+    print(f"Fast Benchmark Generation Complete! Output saved to: {out_path}")
 
 if __name__ == "__main__":
     run_benchmark()

@@ -21,62 +21,99 @@ st.set_page_config(
 
 CUSTOM_CSS = """
 <style>
-    .stApp {
-        background-color: #0f172a;
-        color: #f8fafc;
-    }
-    
-    div[data-baseweb="input"], div[data-baseweb="select"], .stSlider {
-        background-color: #1e293b !important;
-        color: #f8fafc !important;
-        border-radius: 6px;
-    }
-    
-    input {
-        color: #f8fafc !important;
-    }
+    .stApp { background-color: #0b1220; color: #f8fafc; }
+    h1, h2, h3, h4 { color: #ffffff !important; }
 
-    .stButton>button {
+    section[data-testid="stSidebar"] {
+        background-color: #111827 !important;
+        border-right: 1px solid #334155;
+    }
+    section[data-testid="stSidebar"] h1,
+    section[data-testid="stSidebar"] h2,
+    section[data-testid="stSidebar"] h3,
+    section[data-testid="stSidebar"] p,
+    section[data-testid="stSidebar"] label { color: #f8fafc !important; }
+
+    div[data-baseweb="input"],
+    div[data-baseweb="select"],
+    div[data-baseweb="base-input"],
+    .stSlider {
+        background-color: #1e293b !important;
+        color: #ffffff !important;
+        border-radius: 8px;
+    }
+    div[data-baseweb="input"] > div,
+    div[data-baseweb="select"] > div {
+        background-color: #1e293b !important;
+        border-color: #64748b !important;
+    }
+    input, textarea {
+        color: #ffffff !important;
+        background-color: #1e293b !important;
+        caret-color: #ffffff !important;
+    }
+    input::placeholder, textarea::placeholder {
+        color: #a8b3c2 !important; opacity: 1 !important;
+    }
+    div[data-baseweb="select"] * { color: #ffffff !important; }
+
+    .stButton > button {
         background-color: #4f46e5 !important;
         color: #ffffff !important;
-        font-weight: 600;
-        border-radius: 6px;
-        border: none;
+        font-weight: 700;
+        border-radius: 8px;
+        border: 1px solid #818cf8 !important;
+        min-height: 42px;
     }
-    
-    .query-badge {
-        background-color: #0284c7;
+    .stButton > button:hover {
+        background-color: #6366f1 !important;
+        border-color: #a5b4fc !important;
+    }
+    .stButton > button p, .stButton > button span { color: #ffffff !important; }
+    button[kind="primary"] {
+        background-color: #7c3aed !important;
+        border-color: #a78bfa !important;
         color: #ffffff !important;
-        padding: 0.35rem 0.75rem;
-        border-radius: 6px;
-        font-family: monospace;
-        font-size: 0.85rem;
-        display: inline-block;
-        margin-top: 0.5rem;
     }
+    button[kind="primary"]:hover { background-color: #8b5cf6 !important; }
 
     .stTabs [data-baseweb="tab-list"] {
-        gap: 10px;
+        gap: 10px; background-color: #0f172a; padding: 6px; border-radius: 10px;
     }
     .stTabs [data-baseweb="tab"] {
-        height: 48px;
-        background-color: #1e293b;
-        border-radius: 8px;
-        color: #94a3b8 !important;
-        font-weight: 600;
+        height: 48px; background-color: #1e293b;
+        border: 1px solid #475569; border-radius: 8px;
+        color: #cbd5e1 !important; font-weight: 700;
     }
+    .stTabs [data-baseweb="tab"] * { color: #cbd5e1 !important; }
     .stTabs [aria-selected="true"] {
-        background-color: #6366f1 !important;
-        color: #ffffff !important;
+        background-color: #4f46e5 !important;
+        border-color: #818cf8 !important; color: #ffffff !important;
     }
-    
+    .stTabs [aria-selected="true"] * { color: #ffffff !important; }
+
+    .query-badge {
+        background-color: #075985; color: #ffffff !important;
+        border: 1px solid #38bdf8; padding: 0.4rem 0.75rem;
+        border-radius: 7px; font-family: monospace; font-size: 0.85rem;
+        display: inline-block; margin-top: 0.5rem;
+    }
+
     [data-testid="stChatMessage"] {
-        background-color: #1e293b;
-        border: 1px solid #334155;
-        border-radius: 8px;
-        padding: 1rem;
-        margin-bottom: 0.75rem;
+        background-color: #172033; border: 1px solid #475569;
+        border-radius: 10px; padding: 1rem; margin-bottom: 0.75rem;
     }
+    [data-testid="stChatMessage"] p, [data-testid="stChatMessage"] span { color: #f8fafc !important; }
+
+    [data-testid="stExpander"] {
+        background-color: #111827; border: 1px solid #475569; border-radius: 8px;
+    }
+    pre, code {
+        background-color: #020617 !important; color: #f8fafc !important;
+        border: 1px solid #334155;
+    }
+    hr { border-color: #475569 !important; }
+    *:focus-visible { outline: 2px solid #38bdf8 !important; outline-offset: 2px; }
 </style>
 """
 

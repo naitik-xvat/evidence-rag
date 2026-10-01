@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e
 
-
+echo "========================================================="
 echo " CONTACT CENTER CAUSAL RAG SYSTEM - RUNTIME INITIALIZER"
-
+echo "========================================================="
 
 # 1. Health Checks for Ollama Host & Model
 echo "1. Performing system health checks..."
@@ -39,7 +39,7 @@ fi
 # 2. Parse Transcripts
 if [ -f "data/raw/conversations.json" ] && [ ! -f "data/processed/final_transcripts.json" ]; then
     echo "2. Parsing raw conversations dataset..."
-    python src/data_processing/parse_transcripts.py --input data/raw/conversations.json --output data/processed/final_transcripts.json
+    python src/preprocessing/parse_transcripts.py --input data/raw/conversations.json --output data/processed/final_transcripts.json
 elif [ -f "data/processed/final_transcripts.json" ]; then
     echo "2. Processed transcripts found. Skipping parsing step."
 fi
@@ -53,15 +53,17 @@ else
 fi
 
 # 4. Run Benchmark & Evaluation Metrics
+echo "4. Executing Benchmark Suite & Metrics Evaluation..."
+python -m evaluation.generate_dataset
+python -m evaluation.evaluate_metrics
+
 if [ "$EVAL_ONLY" = true ]; then
-    echo "4. Executing Benchmark Suite & Metrics Evaluation..."
-    python -m evaluation.generate_dataset
-    python -m evaluation.evaluate_metrics
+    echo "Evaluation complete (--eval-only flag detected). Exiting without launching UI."
     exit 0
 fi
 
-
-echo "✅ Setup complete! Launching Streamlit UI..."
-
+echo "========================================================="
+echo "Setup complete! Launching Streamlit UI..."
+echo "========================================================="
 
 streamlit run app.py
